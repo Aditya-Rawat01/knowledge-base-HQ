@@ -1,0 +1,1 @@
+# Knowledge dump, contains the tech and principles I have learnt this year so far.
