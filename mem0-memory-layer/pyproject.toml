@@ -6,9 +6,11 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "groq>=1.0.0",
+    "langchain-neo4j>=0.6.0",
     "mem0ai>=1.0.1",
     "ollama>=0.6.1",
     "openai>=2.14.0",
     "python-dotenv>=1.2.1",
     "qdrant-client>=1.16.2",
+    "rank-bm25>=0.2.2",
 ]
