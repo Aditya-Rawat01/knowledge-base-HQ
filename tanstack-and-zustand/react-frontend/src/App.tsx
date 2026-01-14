@@ -1,6 +1,6 @@
-import { QueryClient, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {  useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import './App.css'
-import getAllUsers, { type dbType } from '../network-fns/get_all_users'
+import getAllUsers from '../network-fns/get_all_users'
 import {updateUser} from "../network-fns/update_user"
 import {addUser} from "../network-fns/add_user"
 import {deleteUser} from "../network-fns/delete_user"
@@ -48,14 +48,14 @@ function App() {
           return <div className='user'>
             <p>Name: {user.name}</p>
             <p>Age: {user.age}</p>
-            <button onClick={(e, id=user.id)=>udpateUserMutation.mutate(id)}>update</button>
-            <button onClick={(e, id=user.id)=>{
+            <button onClick={(_e, id=user.id)=>udpateUserMutation.mutate(id)}>update</button>
+            <button onClick={(_e, id=user.id)=>{
               deleteUserMutation.mutate(id)
               decreaseCounter()
               }}>delete</button>
           </div>
         })}
-          <button onClick={(e)=>{
+          <button onClick={(_e)=>{
             addUserMutation.mutate()
             increaseCounter()
             }}>Add new User</button>
