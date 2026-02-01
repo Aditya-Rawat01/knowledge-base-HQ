@@ -12,7 +12,7 @@ if not api_key:
 
 llm = ChatGroq(
     api_key=SecretStr(api_key),
-    model="qwen/qwen3-32b",
+    model="openai/gpt-oss-120b",
     temperature=0,
     max_tokens=2000,
     timeout=None,

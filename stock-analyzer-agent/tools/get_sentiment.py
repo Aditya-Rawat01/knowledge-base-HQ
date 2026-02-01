@@ -1,5 +1,5 @@
 from tools.get_company_insights import safe_get_company_news
-from tools.subagent import structuredllm
+from agents.subagent import structuredllm
 from langchain_core.tools import tool
 
 
@@ -27,9 +27,10 @@ def get_sentiment(ticker: str):
     a label (Bullish/Bearish), and a summary. 
     Use this when the user asks 'how is the stock doing' or 'what is the news'.
     """
-    print("Sub agent call!!!")
+    print("Sub agent call!!!", ticker)
     news = safe_get_company_news(ticker)
     company_context = formatted_news_str(news)
+    
     messages = [
     (
         "system",

@@ -1,4 +1,3 @@
-# exp gets directly calculated, but llm will be needed to explicitly mentioned in system prompt that use ** for exponent and not ^
 from langchain_core.tools import tool
 
 import numexpr as ne

@@ -5,15 +5,17 @@ from langchain_core.tools import tool
 @tool
 def get_stock_data(ticker:str)->dict|str:
     """
-    Retrieves key financial metrics for a stock ticker including price, 
-    market cap, P/E ratio, and 52-week highs/lows.
+    Retrieves financial metrics for a ticker.
+    US STOCKS: Use the plain ticker (e.g., 'AAPL', 'TSLA').
+    INDIAN STOCKS: Append '.NS' or '.BO' (e.g., 'RELIANCE.NS').
+    If unsure of the exchange, call search_ticker first."
     """
     print("Agent collecting stock data!!!")
     try:
         stock = yf.Ticker(ticker)
         info = stock.info
 
-        if not info or "currentPrice" not in info:
+        if not info or "currentPrice" not in info or "currency" not in info:
             return f"Error: Could not find data for the ticker: {ticker}. It might be delisted or invalid."
 
         return {

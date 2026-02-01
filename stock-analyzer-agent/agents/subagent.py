@@ -14,7 +14,7 @@ if not api_key:
 
 llm = ChatGroq(
     api_key=SecretStr(api_key),
-    model="qwen/qwen3-32b",
+    model="openai/gpt-oss-120b",
     temperature=0,
     max_tokens=2000,
     timeout=None,
@@ -23,6 +23,7 @@ llm = ChatGroq(
 class SentimentResponse(BaseModel):
     sentiment_score: float = Field(description="A score between -1.0 and 1.0")
     label: Literal["Bullish", "Bearish", "Neutral"] = Field(description="One word: Bullish, Bearish or Neutral")
+    confidence: Literal["Low", "Medium", "High"]
     summary: str = Field(description="A 2-sentence summary for the overall news sentiment.")
 
 

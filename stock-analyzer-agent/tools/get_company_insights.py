@@ -21,4 +21,3 @@ def safe_get_company_news(ticker:str):
         return get_company_news(ticker)
     except Exception:
         return []
-    
